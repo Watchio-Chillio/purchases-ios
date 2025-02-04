@@ -78,8 +78,7 @@ struct PromotionalOfferView: View {
 
                     PromoOfferButtonView(
                         isLoading: $isLoading,
-                        viewModel: self.viewModel,
-                        appearance: self.appearance
+                        viewModel: self.viewModel
                     )
                     .padding(.horizontal, horizontalPadding)
 
@@ -186,13 +185,14 @@ struct PromoOfferButtonView: View {
 
     @Binding var isLoading: Bool
 
+    @Environment(\.appearance)
+    private var appearance: CustomerCenterConfigData.Appearance
+
     @Environment(\.locale)
     private var locale
 
     @ObservedObject
     private(set) var viewModel: PromotionalOfferViewModel
-
-    private(set) var appearance: CustomerCenterConfigData.Appearance
 
     var body: some View {
         if let product = self.viewModel.promotionalOfferData?.product,
