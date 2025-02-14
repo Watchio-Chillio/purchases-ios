@@ -206,7 +206,7 @@ public class PaywallViewController: UIViewController {
     // MARK: - Internal
 
     class var mode: PaywallViewMode {
-        return .fullScreen
+      return .condensedFooter
     }
 
     // MARK: - Private
